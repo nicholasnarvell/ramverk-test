@@ -1,8 +1,18 @@
-function Movies() {
+import Movie from "./Movie";
+import { ListGroup } from 'react-bootstrap';
+
+function Movies({ movies, onDeleteMovie }) {
+
     return (
-        <ul>
-            
-        </ul>
+        <div>
+            <h3>Inlagda filmer</h3>
+            <ListGroup>
+            {movies.map((movie) => (
+
+                <Movie key={movie.title} movie={movie} onDelete={() => onDeleteMovie(movie)}/> 
+            ))}
+            </ListGroup>
+        </div>
     );
 }
 
