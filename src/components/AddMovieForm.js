@@ -2,14 +2,15 @@ import React, { useState } from "react";
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 
-
+//Component that contains input-fields, gets method onSaveMovie as prop
 function AddMovieForm({ onSaveMovie }) {
+    //States for input-fields, if changed fires refresh of relevant component if updated
     const [title, setTitle] = useState("");
     const [grade, setGrade] = useState("Välj betyg här...");
 
+    //Submit-method that checks input for errors/missing values, if ok updates states
     const saveMovie = (event) => {
         event.preventDefault();
-        console.log(title, grade);
         if (title === "") {
 
             alert("Enter a valid title")
@@ -28,6 +29,7 @@ function AddMovieForm({ onSaveMovie }) {
     }
 
     return (
+        /*Using bootstrap components to build our component*/
         <Form onSubmit={saveMovie}>
             <Form.Group className="mb-3" controlId="movieBasic">
                 <Form.Label>Titel:</Form.Label>
